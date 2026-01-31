@@ -550,11 +550,23 @@
       box-shadow: var(--shadow-md);
     }
     
-    /* Hero mockup placeholder */
-    .hero-mockup {
+    /* Mockup placeholder */
+    .mockup-container {
       margin-top: var(--space-12);
+      opacity: 0;
+      transform: translateY(32px);
+      transition: all var(--duration-slow) var(--ease-out) 400ms;
+    }
+    
+    .section.visible .mockup-container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .mockup {
       width: 100%;
-      max-width: 900px;
+      max-width: 800px;
+      margin: 0 auto;
       aspect-ratio: 16 / 9;
       background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(26, 54, 93, 0.04));
       border: 2px dashed rgba(26, 54, 93, 0.2);
@@ -564,12 +576,9 @@
       justify-content: center;
       color: var(--color-text-subtle);
       font-size: var(--text-sm);
-      animation: fadeInUp 800ms var(--ease-out) 400ms both;
-      position: relative;
-      z-index: 2;
     }
     
-    .hero-mockup::before {
+    .mockup::before {
       content: 'Screenshot coming soon';
       opacity: 0.6;
     }
@@ -610,8 +619,7 @@
         max-width: 280px;
       }
       
-      .hero-mockup {
-        margin-top: var(--space-8);
+      .mockup {
         aspect-ratio: 4 / 3;
       }
     }
@@ -938,9 +946,6 @@
       </div>
     </div>
     
-    <!-- Mockup placeholder -->
-    <div class="hero-mockup" aria-hidden="true"></div>
-    
     <span class="scroll-hint" aria-hidden="true">↓</span>
   </header>
 
@@ -1002,6 +1007,11 @@
           <h3 class="card-title">Clear Feedback</h3>
           <p class="card-text">Constraint status and violations are summarized clearly, making the decision rationale more traceable.</p>
         </article>
+      </div>
+      
+      <!-- Mockup placeholder -->
+      <div class="mockup-container">
+        <div class="mockup" aria-hidden="true"></div>
       </div>
     </section>
 
