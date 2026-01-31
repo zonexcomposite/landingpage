@@ -442,6 +442,36 @@
         display: none;
       }
     }
+    
+    /* Hero language switcher (visible before scroll) */
+    .hero-lang-switcher {
+      position: fixed;
+      top: var(--space-5);
+      right: var(--space-5);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(26, 54, 93, 0.1);
+      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.08);
+      transition: opacity var(--duration-base) ease;
+    }
+    
+    .hero-lang-switcher.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .hero-lang-switcher .lang-btn {
+      padding: 6px 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--text-sm);
+    }
 
     /* ==================== HERO ==================== */
     .hero {
@@ -1080,6 +1110,12 @@
   <!-- Skip Link -->
   <a href="#problem" class="skip-link">Skip to content</a>
 
+  <!-- Hero Language Switcher (visible before scroll) -->
+  <div class="hero-lang-switcher" aria-label="Language selection">
+    <a href="../index.html" class="lang-btn">TR</a>
+    <a href="index.html" class="lang-btn active" aria-current="page">EN</a>
+  </div>
+
   <!-- Sticky Navbar -->
   <nav class="navbar" aria-label="Main menu">
     <a href="#" class="navbar-brand" aria-label="Back to top">
@@ -1340,12 +1376,15 @@
       // Sticky navbar - show after scrolling past hero
       const navbar = document.querySelector('.navbar');
       const hero = document.querySelector('.hero');
+      const heroLangSwitcher = document.querySelector('.hero-lang-switcher');
       const toggleNavbar = () => {
         const heroBottom = hero.offsetTop + hero.offsetHeight - 100;
         if (window.scrollY > heroBottom) {
           navbar.classList.add('visible');
+          heroLangSwitcher.classList.add('hidden');
         } else {
           navbar.classList.remove('visible');
+          heroLangSwitcher.classList.remove('hidden');
         }
       };
       window.addEventListener('scroll', toggleNavbar, { passive: true });
