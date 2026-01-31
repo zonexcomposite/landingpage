@@ -11,11 +11,42 @@
   <meta name="msapplication-TileColor" content="#1a365d">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
   
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://kostaks13.github.io/zonex/">
+  <link rel="alternate" hreflang="tr" href="https://kostaks13.github.io/zonex/">
+  <link rel="alternate" hreflang="en" href="https://kostaks13.github.io/zonex/en/">
+  <link rel="alternate" hreflang="x-default" href="https://kostaks13.github.io/zonex/">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Zonex — Multi-Zone Kompozit Dizilim Optimizasyonu">
-  <meta property="og:description" content="Kompozit tasarım sürecinde kural/kısıtları takip etmeyi ve alternatif dizilimleri sistematik şekilde değerlendirmeyi kolaylaştırır.">
+  <meta property="og:description" content="ZONEX, multi-zone layup tasarımında kısıt uyumunu (symmetry/balance/contiguity) görünür kılar ve alternatif dizilimleri karşılaştırmalı değerlendirmeyi kolaylaştırır.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/logo.png">
+  <meta property="og:url" content="https://kostaks13.github.io/zonex/">
+  <meta property="og:image" content="https://kostaks13.github.io/zonex/assets/images/logo.png">
+  <meta property="og:locale" content="tr_TR">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZONEX",
+    "applicationCategory": "EngineeringApplication",
+    "description": "Multi-zone layup tasarımında kısıt uyumunu görünür kılar ve alternatif dizilimleri karşılaştırmalı değerlendirmeyi kolaylaştırır.",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Şükrü Tarık Kostak",
+      "email": "sukrutarik.kostak@tai.com.tr"
+    }
+  }
+  </script>
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -498,6 +529,51 @@
       50% { transform: translateX(-50%) translateY(8px); opacity: 0.7; }
     }
     
+    /* Hero CTA buttons */
+    .hero-cta {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-navy);
+      border: 2px solid var(--color-navy);
+      box-shadow: none;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--color-navy);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Hero mockup placeholder */
+    .hero-mockup {
+      margin-top: var(--space-12);
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(26, 54, 93, 0.04));
+      border: 2px dashed rgba(26, 54, 93, 0.2);
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-subtle);
+      font-size: var(--text-sm);
+      animation: fadeInUp 800ms var(--ease-out) 400ms both;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-mockup::before {
+      content: 'Ekran görüntüsü buraya gelecek';
+      opacity: 0.6;
+    }
+
     /* Hero responsive - mobilde alt alta */
     @media (max-width: 768px) {
       .hero {
@@ -524,9 +600,19 @@
         max-width: 100%;
       }
       
-      .hero-content .btn {
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-cta .btn {
         width: 100%;
         max-width: 280px;
+      }
+      
+      .hero-mockup {
+        margin-top: var(--space-8);
+        aspect-ratio: 4 / 3;
       }
     }
 
@@ -845,9 +931,15 @@
       <div class="hero-content">
         <h1 class="hero-title">Multi-Zone Kompozit Dizilim Optimizasyonu</h1>
         <p class="tagline">ZONEX, multi-zone layup tasarımında kısıt uyumunu (symmetry/balance/contiguity) görünür kılar ve alternatif dizilimleri karşılaştırmalı değerlendirmeyi kolaylaştırır.</p>
-        <a href="#problem" class="btn btn-primary magnetic">Keşfet</a>
+        <div class="hero-cta">
+          <a href="mailto:sukrutarik.kostak@tai.com.tr?subject=ZONEX%20Pilot%20Görüşmesi" class="btn btn-primary magnetic">Pilot Görüşmesi Talep Et</a>
+          <a href="#problem" class="btn btn-secondary magnetic">Keşfet</a>
+        </div>
       </div>
     </div>
+    
+    <!-- Mockup placeholder -->
+    <div class="hero-mockup" aria-hidden="true"></div>
     
     <span class="scroll-hint" aria-hidden="true">↓</span>
   </header>
@@ -963,7 +1055,7 @@
   <section class="cta-section" aria-labelledby="cta-title">
     <h2 class="cta-title" id="cta-title">Pilot kullanıcı olmak ister misin?</h2>
     <p class="cta-subtitle">Erken aşama bir ürün. İhtiyacını anlayıp doğru çözümü birlikte şekillendirmek için 15 dk görüşelim.</p>
-    <a href="mailto:?subject=ZONEX%20Pilot%20Görüşmesi" class="btn btn-primary magnetic">Pilot Görüşmesi Talep Et</a>
+    <a href="mailto:sukrutarik.kostak@tai.com.tr?subject=ZONEX%20Pilot%20Görüşmesi" class="btn btn-primary magnetic">Pilot Görüşmesi Talep Et</a>
   </section>
 
   <!-- Footer -->

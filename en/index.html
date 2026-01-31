@@ -11,11 +11,42 @@
   <meta name="msapplication-TileColor" content="#1a365d">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
   
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://kostaks13.github.io/zonex/en/">
+  <link rel="alternate" hreflang="tr" href="https://kostaks13.github.io/zonex/">
+  <link rel="alternate" hreflang="en" href="https://kostaks13.github.io/zonex/en/">
+  <link rel="alternate" hreflang="x-default" href="https://kostaks13.github.io/zonex/">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Zonex — Multi-Zone Composite Layup Optimization">
-  <meta property="og:description" content="Simplifies tracking rules/constraints in composite design and systematically evaluating alternative layups.">
+  <meta property="og:description" content="ZONEX makes constraint compliance (symmetry/balance/contiguity) visible in multi-zone layup design and simplifies comparative evaluation of alternative stacking sequences.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="../assets/images/logo.png">
+  <meta property="og:url" content="https://kostaks13.github.io/zonex/en/">
+  <meta property="og:image" content="https://kostaks13.github.io/zonex/assets/images/logo.png">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ZONEX",
+    "applicationCategory": "EngineeringApplication",
+    "description": "Makes constraint compliance visible in multi-zone layup design and simplifies comparative evaluation of alternative stacking sequences.",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Şükrü Tarık Kostak",
+      "email": "sukrutarik.kostak@tai.com.tr"
+    }
+  }
+  </script>
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -498,6 +529,51 @@
       50% { transform: translateX(-50%) translateY(8px); opacity: 0.7; }
     }
     
+    /* Hero CTA buttons */
+    .hero-cta {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-navy);
+      border: 2px solid var(--color-navy);
+      box-shadow: none;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--color-navy);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Hero mockup placeholder */
+    .hero-mockup {
+      margin-top: var(--space-12);
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(26, 54, 93, 0.04));
+      border: 2px dashed rgba(26, 54, 93, 0.2);
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-subtle);
+      font-size: var(--text-sm);
+      animation: fadeInUp 800ms var(--ease-out) 400ms both;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-mockup::before {
+      content: 'Screenshot coming soon';
+      opacity: 0.6;
+    }
+
     /* Hero responsive - stack on mobile */
     @media (max-width: 768px) {
       .hero {
@@ -524,9 +600,19 @@
         max-width: 100%;
       }
       
-      .hero-content .btn {
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-cta .btn {
         width: 100%;
         max-width: 280px;
+      }
+      
+      .hero-mockup {
+        margin-top: var(--space-8);
+        aspect-ratio: 4 / 3;
       }
     }
 
@@ -845,9 +931,15 @@
       <div class="hero-content">
         <h1 class="hero-title">Multi-Zone Composite Layup Optimization</h1>
         <p class="tagline">ZONEX makes constraint compliance (symmetry/balance/contiguity) visible in multi-zone layup design and simplifies comparative evaluation of alternative stacking sequences.</p>
-        <a href="#problem" class="btn btn-primary magnetic">Discover</a>
+        <div class="hero-cta">
+          <a href="mailto:sukrutarik.kostak@tai.com.tr?subject=ZONEX%20Pilot%20Call" class="btn btn-primary magnetic">Request a Pilot Call</a>
+          <a href="#problem" class="btn btn-secondary magnetic">Discover</a>
+        </div>
       </div>
     </div>
+    
+    <!-- Mockup placeholder -->
+    <div class="hero-mockup" aria-hidden="true"></div>
     
     <span class="scroll-hint" aria-hidden="true">↓</span>
   </header>
@@ -963,7 +1055,7 @@
   <section class="cta-section" aria-labelledby="cta-title">
     <h2 class="cta-title" id="cta-title">Interested in becoming a pilot user?</h2>
     <p class="cta-subtitle">Early-stage product. Let's do a 15-minute call to understand your workflow and shape the right solution.</p>
-    <a href="mailto:?subject=ZONEX%20Pilot%20Call" class="btn btn-primary magnetic">Request a Pilot Call</a>
+    <a href="mailto:sukrutarik.kostak@tai.com.tr?subject=ZONEX%20Pilot%20Call" class="btn btn-primary magnetic">Request a Pilot Call</a>
   </section>
 
   <!-- Footer -->
