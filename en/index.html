@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zonex — Hafif Malzeme Tasarımında Akıllı Çözüm</title>
-  <meta name="description" content="Karbon fiber ve kompozit parça tasarımını kolaylaştıran akıllı yazılım. Daha hafif ürünler, daha kısa sürede.">
+  <title>Zonex — Smart Lightweight Material Design</title>
+  <meta name="description" content="Smart software that simplifies carbon fiber and composite part design. Lighter products, faster.">
   
   <!-- Theme & Favicon -->
   <meta name="theme-color" content="#fefdfb">
@@ -12,10 +12,10 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Zonex — Hafif Malzeme Tasarımında Akıllı Çözüm">
-  <meta property="og:description" content="Karbon fiber ve kompozit parça tasarımını kolaylaştıran akıllı yazılım.">
+  <meta property="og:title" content="Zonex — Smart Lightweight Material Design">
+  <meta property="og:description" content="Smart software that simplifies carbon fiber and composite part design.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/logo.png">
+  <meta property="og:image" content="../assets/images/logo.png">
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,24 +26,24 @@
     /* ==================== DESIGN TOKENS ==================== */
     :root {
       /* 
-        RENK PALETİ (60-30-10 kuralı)
+        COLOR PALETTE (60-30-10 rule)
         ─────────────────────────────
-        %60 Ana: Yumurta beyazı/krem (arka plan)
-        %30 İkincil: Lacivert (metinler, başlıklar)
-        %10 Üçüncül: Bordo (sadece CTA butonları)
+        60% Primary: Eggshell white (background)
+        30% Secondary: Navy blue (text, headings)
+        10% Tertiary: Burgundy (CTA buttons only)
       */
       
-      /* Ana Renk - %60 - Yumurta Beyazı (temiz, nötr) */
+      /* Primary Color - 60% - Eggshell White */
       --color-bg: #fefdfb;
       --color-bg-alt: #f9f8f6;
       --color-bg-card: #ffffff;
       
-      /* İkincil Renk - %30 - Lacivert */
+      /* Secondary Color - 30% - Navy */
       --color-navy: #1a365d;
       --color-navy-light: #2c5282;
       --color-navy-dark: #0f2744;
       
-      /* Üçüncül Renk - %10 - Bordo */
+      /* Tertiary Color - 10% - Burgundy */
       --color-accent: #9f1239;
       --color-accent-light: #be123c;
       --color-accent-dark: #881337;
@@ -133,7 +133,7 @@
       overflow-x: hidden;
     }
     
-    /* Custom Selection - Bordo */
+    /* Custom Selection - Burgundy */
     ::selection {
       background: var(--color-accent);
       color: white;
@@ -232,7 +232,7 @@
       transition: all var(--duration-base) var(--ease-out);
     }
     
-    /* Bordo buton - %10 accent rengi */
+    /* Burgundy button - 10% accent color */
     .btn-primary {
       background: var(--color-accent);
       color: white;
@@ -338,7 +338,7 @@
       overflow: hidden;
     }
     
-    /* Honeycomb pattern arka plan */
+    /* Honeycomb pattern background */
     .hero::before {
       content: '';
       position: absolute;
@@ -369,7 +369,7 @@
       z-index: 2;
     }
     
-    /* Hero içerik container */
+    /* Hero content container */
     .hero-container {
       display: flex;
       align-items: flex-start;
@@ -381,7 +381,7 @@
       margin: 0 auto;
     }
     
-    /* Logo sol tarafta */
+    /* Logo on left */
     .hero-brand {
       flex-shrink: 0;
       animation: fadeInLeft 800ms var(--ease-out);
@@ -398,7 +398,7 @@
       height: auto;
     }
     
-    /* İçerik sağ tarafta */
+    /* Content on right */
     .hero-content {
       flex: 1;
     }
@@ -498,7 +498,7 @@
       50% { transform: translateX(-50%) translateY(8px); opacity: 0.7; }
     }
     
-    /* Hero responsive - mobilde alt alta */
+    /* Hero responsive - stack on mobile */
     @media (max-width: 768px) {
       .hero {
         padding: var(--space-12) var(--space-5);
@@ -818,12 +818,12 @@
 <body>
 
   <!-- Skip Link -->
-  <a href="#problem" class="skip-link">İçeriğe geç</a>
+  <a href="#problem" class="skip-link">Skip to content</a>
 
   <!-- Language Switcher -->
-  <nav class="lang-switcher" aria-label="Dil seçimi">
-    <a href="index.html" class="lang-btn active" aria-current="page">TR</a>
-    <a href="en/index.html" class="lang-btn">EN</a>
+  <nav class="lang-switcher" aria-label="Language selection">
+    <a href="../index.html" class="lang-btn">TR</a>
+    <a href="index.html" class="lang-btn active" aria-current="page">EN</a>
   </nav>
 
   <!-- Hero -->
@@ -836,16 +836,16 @@
     </div>
     
     <div class="hero-container">
-      <!-- Logo sol tarafta -->
+      <!-- Logo on left -->
       <div class="hero-brand">
-        <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="160" height="160">
+        <img src="../assets/images/logo.png" alt="Zonex logo" class="logo" width="160" height="160">
       </div>
       
-      <!-- İçerik sağ tarafta -->
+      <!-- Content on right -->
       <div class="hero-content">
-        <h1 class="hero-title">Hafif Malzeme Tasarımında Akıllı Çözüm</h1>
-        <p class="tagline">Karbon fiber ve kompozit parça tasarımını kolaylaştıran yazılım. Daha hafif ürünler, daha kısa sürede.</p>
-        <a href="#problem" class="btn btn-primary magnetic">Keşfet</a>
+        <h1 class="hero-title">Smart Lightweight Material Design</h1>
+        <p class="tagline">Software that simplifies carbon fiber and composite part design. Lighter products, faster delivery.</p>
+        <a href="#problem" class="btn btn-primary magnetic">Discover</a>
       </div>
     </div>
     
@@ -857,34 +857,34 @@
     <section class="section" id="problem" aria-labelledby="problem-title">
       <div class="section-header">
         <span class="section-label">Problem</span>
-        <h2 class="section-title" id="problem-title">Neden bu kadar zor?</h2>
+        <h2 class="section-title" id="problem-title">Why is it so hard?</h2>
       </div>
       <div class="cards">
         <article class="card">
           <span class="card-icon" aria-hidden="true">🧩</span>
-          <h3 class="card-title">Sonsuz Olasılık</h3>
-          <p class="card-text">Basit bir parça için bile milyarlarca farklı tasarım seçeneği var.</p>
+          <h3 class="card-title">Endless Possibilities</h3>
+          <p class="card-text">Even a simple part has billions of possible design options.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">⚡</span>
-          <h3 class="card-title">Zaman ve Kaynak</h3>
-          <p class="card-text">Tüm seçenekleri tek tek denemek yıllar sürer, pratik değil.</p>
+          <h3 class="card-title">Time & Resources</h3>
+          <p class="card-text">Testing all options one by one would take years—not practical.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">🎯</span>
-          <h3 class="card-title">Tutarsız Sonuçlar</h3>
-          <p class="card-text">Farklı mühendisler farklı sonuçlara ulaşıyor.</p>
+          <h3 class="card-title">Inconsistent Results</h3>
+          <p class="card-text">Different engineers reach different conclusions.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">⚠️</span>
-          <h3 class="card-title">Yüksek Risk</h3>
-          <p class="card-text">Hatalı tasarımlar ağır ve üretilmesi zor parçalara yol açıyor.</p>
+          <h3 class="card-title">High Risk</h3>
+          <p class="card-text">Wrong designs lead to heavy parts that are hard to manufacture.</p>
         </article>
       </div>
       <div class="stats">
         <div class="stat">
           <div class="stat-value">10<sup>40</sup></div>
-          <div class="stat-label">olası tasarım seçeneği</div>
+          <div class="stat-label">possible design options</div>
         </div>
       </div>
     </section>
@@ -892,29 +892,29 @@
     <!-- Solution -->
     <section class="section" aria-labelledby="solution-title">
       <div class="section-header">
-        <span class="section-label">Çözüm</span>
-        <h2 class="section-title" id="solution-title">Zonex nasıl çalışır?</h2>
+        <span class="section-label">Solution</span>
+        <h2 class="section-title" id="solution-title">How does Zonex work?</h2>
       </div>
       <div class="cards">
         <article class="card">
           <span class="card-icon" aria-hidden="true">🔗</span>
-          <h3 class="card-title">Uyum Öncelikli</h3>
-          <p class="card-text">Parçalar arası geçişler baştan düşünülüyor, sonradan sorun çıkmıyor.</p>
+          <h3 class="card-title">Compatibility First</h3>
+          <p class="card-text">Part-to-part transitions are considered from the start—no surprises later.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">📐</span>
-          <h3 class="card-title">Kurallar Entegre</h3>
-          <p class="card-text">Tüm tasarım kuralları sisteme gömülü, manuel kontrol gerekmiyor.</p>
+          <h3 class="card-title">Built-in Rules</h3>
+          <p class="card-text">All design rules are embedded in the system—no manual checks needed.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">✂️</span>
-          <h3 class="card-title">Akıllı Eleme</h3>
-          <p class="card-text">Kötü seçenekler otomatik eleniyor, en iyiler öne çıkıyor.</p>
+          <h3 class="card-title">Smart Filtering</h3>
+          <p class="card-text">Bad options are automatically eliminated, best ones rise to the top.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">📊</span>
-          <h3 class="card-title">Görsel Geri Bildirim</h3>
-          <p class="card-text">Sorunlar anında ekranda gösteriliyor, anlaşılması kolay.</p>
+          <h3 class="card-title">Visual Feedback</h3>
+          <p class="card-text">Issues are shown instantly on screen, easy to understand.</p>
         </article>
       </div>
     </section>
@@ -922,29 +922,29 @@
     <!-- Differentiators -->
     <section class="section" aria-labelledby="diff-title">
       <div class="section-header">
-        <span class="section-label">Fark</span>
-        <h2 class="section-title" id="diff-title">Neden Zonex?</h2>
+        <span class="section-label">Difference</span>
+        <h2 class="section-title" id="diff-title">Why Zonex?</h2>
       </div>
       <div class="cards">
         <article class="card">
           <span class="card-icon" aria-hidden="true">🪶</span>
-          <h3 class="card-title">Daha Hafif</h3>
-          <p class="card-text">Gereksiz malzeme yok, optimize edilmiş tasarımlar.</p>
+          <h3 class="card-title">Lighter</h3>
+          <p class="card-text">No excess material, optimized designs.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">⏱️</span>
-          <h3 class="card-title">Daha Hızlı</h3>
-          <p class="card-text">Günler süren işler saatlere iniyor.</p>
+          <h3 class="card-title">Faster</h3>
+          <p class="card-text">Days of work reduced to hours.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">🔌</span>
-          <h3 class="card-title">Kolay Entegrasyon</h3>
-          <p class="card-text">Mevcut tasarım programlarıyla uyumlu çalışıyor.</p>
+          <h3 class="card-title">Easy Integration</h3>
+          <p class="card-text">Works seamlessly with existing design software.</p>
         </article>
         <article class="card">
           <span class="card-icon" aria-hidden="true">🎨</span>
-          <h3 class="card-title">Kolay Kullanım</h3>
-          <p class="card-text">Basit arayüz, hızlı öğrenme, herkes kullanabilir.</p>
+          <h3 class="card-title">User Friendly</h3>
+          <p class="card-text">Simple interface, quick learning curve, anyone can use it.</p>
         </article>
       </div>
     </section>
@@ -952,29 +952,29 @@
     <!-- Who -->
     <section class="section list-section" aria-labelledby="who-title">
       <div class="section-header">
-        <span class="section-label">Hedef Sektörler</span>
-        <h2 class="section-title" id="who-title">Kimler için?</h2>
+        <span class="section-label">Target Industries</span>
+        <h2 class="section-title" id="who-title">Who is it for?</h2>
       </div>
       <div class="tags" role="list">
-        <span class="tag" role="listitem">Havacılık & Savunma</span>
-        <span class="tag" role="listitem">Uzay & Roket</span>
+        <span class="tag" role="listitem">Aerospace & Defense</span>
+        <span class="tag" role="listitem">Space & Rockets</span>
         <span class="tag" role="listitem">Motorsport</span>
-        <span class="tag" role="listitem">Rüzgar Enerjisi</span>
-        <span class="tag" role="listitem">Lüks Otomotiv</span>
+        <span class="tag" role="listitem">Wind Energy</span>
+        <span class="tag" role="listitem">Luxury Automotive</span>
       </div>
     </section>
   </main>
 
   <!-- CTA -->
   <section class="cta-section" aria-labelledby="cta-title">
-    <h2 class="cta-title" id="cta-title">İlgini çekti mi?</h2>
-    <p class="cta-subtitle">Erken aşama bir proje. Geri bildirim ve işbirliği için iletişime geç.</p>
-    <a href="mailto:?subject=Zonex%20hakkında" class="btn btn-primary magnetic">İletişime Geç</a>
+    <h2 class="cta-title" id="cta-title">Interested?</h2>
+    <p class="cta-subtitle">Early stage project. Get in touch for feedback and collaboration.</p>
+    <a href="mailto:?subject=About%20Zonex" class="btn btn-primary magnetic">Get in Touch</a>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>Erken aşama proje</p>
+    <p>Early stage project</p>
   </footer>
 
   <script>
