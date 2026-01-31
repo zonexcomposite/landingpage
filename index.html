@@ -3,44 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zonex</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0d0d1a 100%);
-      color: #e8e8e8;
-    }
-    .container {
-      text-align: center;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, #7c3aed, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    p {
-      font-size: 1.125rem;
-      opacity: 0.85;
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-  </style>
+  <title>Zonex — Bölge bazlı kompozit katman dizilimi & blending optimizasyonu</title>
+  <meta name="description" content="Girilen analiz verilerine göre katman dizilimi önerisi çıkaran optimizasyon programı. Erken aşama iç girişim; POC / pilot odaklı.">
+  <meta property="og:title" content="Zonex — Bölge bazlı kompozit katman dizilimi & blending optimizasyonu">
+  <meta property="og:description" content="Girilen analiz verilerine göre katman dizilimi önerisi çıkaran optimizasyon programı. Erken aşama iç girişim; POC / pilot odaklı.">
+  <meta property="og:image" content="https://kostaks13.github.io/zonex/assets/images/hero.jpg">
+  <meta property="og:url" content="https://kostaks13.github.io/zonex/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zonex — Bölge bazlı kompozit katman dizilimi & blending optimizasyonu">
+  <meta name="twitter:description" content="Girilen analiz verilerine göre katman dizilimi önerisi çıkaran optimizasyon programı. Erken aşama iç girişim; POC / pilot odaklı.">
+  <meta name="twitter:image" content="https://kostaks13.github.io/zonex/assets/images/hero.jpg">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Zonex</h1>
-    <p>Hoş geldiniz.</p>
-  </div>
+  <header class="hero" id="top">
+    <div class="container">
+      <h1 class="hero__headline">Bölge bazlı kompozit katman dizilimi & blending optimizasyonu</h1>
+      <p class="hero__subhead">Erken aşama iç girişim. Hız, kurallar, ağırlık ve üretilebilirlik riskini iyileştiren katman/blending optimizasyonu; POC ve pilot projeler için uygun.</p>
+      <div class="hero__ctas">
+        <a href="mailto:?subject=POC%20/%20Pilot%20görüşmesi&body=Zonex%20POC%20/%20Pilot%20hakkında%20iletişime%20geçmek%20istiyorum." class="hero__cta hero__cta--primary">POC / Pilot için iletişime geç</a>
+        <a href="#gallery" class="hero__cta hero__cta--secondary">Görselleri incele</a>
+      </div>
+      <div class="hero__img-wrap">
+        <img src="assets/images/hero.jpg" alt="Zonex — katman dizilimi ve blending optimizasyonu örnek ekran" class="hero__img" width="1200" height="630" loading="eager" onerror="this.style.visibility='hidden'">
+      </div>
+    </div>
+  </header>
+
+  <section class="section problem" id="problem">
+    <div class="container">
+      <h2 class="section-title">Problem</h2>
+      <ul>
+        <li>Çok bölgeli kurallar ile blending uyumu zor; kombinatoryal patlama (ör. basit bir parça için ~10<sup>40</sup> olasılık) mevcut.</li>
+        <li>Hesaplama ve kaynak limitleri nedeniyle kaba kuvvet pratik değil.</li>
+        <li>Sonuçlar başlangıç noktasına göre değişiyor.</li>
+      </ul>
+      <p class="problem__impact"><strong>Etki:</strong> Daha ağır yapılar, uzayan tasarım döngüleri, üretilebilirlik riski.</p>
+    </div>
+  </section>
+
+  <section class="section solution" id="solution">
+    <div class="container">
+      <h2 class="section-title">Çözüm / Yaklaşım</h2>
+      <p>Girilen analiz verilerine göre katman dizilimi önerisi çıkaran optimizasyon programı.</p>
+      <p><strong>Blending-first yaklaşımı</strong> — süreç boyunca süreklilik garanti altına alınır. Kurallar programa içselleştirilir; çözüm uzayı akıllı budama ile daraltılarak uygulanabilir layup’lar daha hızlı üretilir.</p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <h2 class="section-title">Nasıl Çalışır</h2>
+      <div class="how-cols">
+        <div class="how-card">
+          <h3 class="how-card__title">Girdiler</h3>
+          <p class="how-card__text">Bölge sınırları, hedef ply sayıları, kurallar.</p>
+        </div>
+        <div class="how-card">
+          <h3 class="how-card__title">Motor</h3>
+          <p class="how-card__text">Yenilikçi algoritmalar, ML destekli optimizasyon, test edilmiş örneklerle doğrulama.</p>
+        </div>
+        <div class="how-card">
+          <h3 class="how-card__title">Çıktılar</h3>
+          <p class="how-card__text">Ply haritası, dışa aktarma dosyaları, uyumluluk raporu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="differentiators">
+    <div class="container">
+      <h2 class="section-title">Farklılaştırıcılar</h2>
+      <div class="diff-grid">
+        <div class="diff-card"><p class="diff-card__text">Kullanıcı dostu arayüz ve kural ihlallerini gösteren görsel raporlar.</p></div>
+        <div class="diff-card"><p class="diff-card__text">Kural öncelikli: blending, bitişiklik, drop-off.</p></div>
+        <div class="diff-card"><p class="diff-card__text">Hafif çözümler: gereksiz ply sayısı azaltılır.</p></div>
+        <div class="diff-card"><p class="diff-card__text">Daha hızlı iterasyonlar: kısa revizyon döngüleri.</p></div>
+        <div class="diff-card"><p class="diff-card__text">Uyumlu çıktılar: CAD/PLM’e dışa aktarma.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="container">
+      <h2 class="section-title gallery__title">Bekleyebileceğiniz çıktılar (görseller)</h2>
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/concept-ui.jpg" alt="Zonex kavramsal arayüz" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Concept UI</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/workflow-mock.jpg" alt="İş akışı mock-up" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Workflow mock</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/output-example.jpg" alt="Çıktı örneği" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Output example</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/rule-violation.jpg" alt="Kural ihlali görselleştirmesi" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Rule violation visualization</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/gallery-1.jpg" alt="Zonex ekran örneği 1" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Ekran örneği</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <div class="gallery-item__img-wrap">
+            <img src="assets/images/gallery-2.jpg" alt="Zonex ekran örneği 2" width="400" height="300" loading="lazy" onerror="this.style.visibility='hidden'">
+          </div>
+          <figcaption class="gallery-item__caption">Ekran örneği</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who">
+    <div class="container">
+      <h2 class="section-title">Kimler İçin</h2>
+      <p style="margin-bottom: 1rem; font-size: 0.95rem; opacity: 0.9;">Hedef segmentler (örnek sektörler; müşteri iddiası yoktur):</p>
+      <div class="who-cols">
+        <span class="who-tag">Aerospace & Defense OEM / Tier 1–2</span>
+        <span class="who-tag">Space & Launch / Rocket</span>
+        <span class="who-tag">Motorsport / Wind Energy / Luxury Automotive</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="roadmap">
+    <div class="container">
+      <h2 class="section-title">Yol Haritası</h2>
+      <ul class="roadmap-list">
+        <li><strong>PoC</strong> — İç pilot proje.</li>
+        <li><strong>Pilot</strong> — Farklı programlarda iç test (iç referans bağlamında).</li>
+        <li><strong>Ürünleştirme</strong> — Modüler sürüm ve eklenti modülleri.</li>
+        <li><strong>Ticarileştirme</strong> — OEM ve uluslararası yayılım.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="business">
+    <div class="container">
+      <h2 class="section-title">İş Modeli (Genel)</h2>
+      <div class="biz-cols">
+        <div class="biz-block">
+          <h3>Gelir</h3>
+          <ul>
+            <li>Yıllık abonelik</li>
+            <li>Modül satışları (analiz entegrasyonu, nesting, warpage analizi)</li>
+            <li>Bakım / destek</li>
+            <li>Eğitim / danışmanlık</li>
+          </ul>
+        </div>
+        <div class="biz-block">
+          <h3>Maliyetler</h3>
+          <ul>
+            <li>Altyapı / geliştirme</li>
+            <li>Doğrulama testleri</li>
+            <li>Ekip büyümesi</li>
+            <li>Pazarlama / destek</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">İletişim</h2>
+      <a href="mailto:?subject=Geri%20bildirim%20/%20POC%20görüşmesi&body=Zonex%20hakkında%20geri%20bildirim%20veya%20POC%20görüşmesi%20talep%20ediyorum." class="contact__cta">Geri bildirim / POC görüşmesi</a>
+      <p class="contact__note">Erken aşama — geri bildirimle şekilleniyor.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Internal venture / early-stage initiative.</p>
+      <p style="margin-top: 0.25rem; font-size: 0.8rem;">Ocak 2025</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
