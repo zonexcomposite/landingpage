@@ -1349,44 +1349,6 @@
         }
       };
       window.addEventListener('scroll', toggleNavbar, { passive: true });
-      
-      // Update URL hash based on visible section
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.navbar-link');
-      
-      const updateActiveSection = () => {
-        const scrollY = window.scrollY + 150;
-        
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          const sectionId = section.getAttribute('id');
-          
-          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-            // Update URL without adding to history
-            if (window.location.hash !== '#' + sectionId) {
-              history.replaceState(null, null, '#' + sectionId);
-            }
-            // Highlight active nav link
-            navLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active');
-              }
-            });
-          }
-        });
-        
-        // If at top of page, remove hash
-        if (window.scrollY < hero.offsetHeight - 100) {
-          if (window.location.hash) {
-            history.replaceState(null, null, window.location.pathname);
-          }
-          navLinks.forEach(link => link.classList.remove('active'));
-        }
-      };
-      
-      window.addEventListener('scroll', updateActiveSection, { passive: true });
     })();
   </script>
 
