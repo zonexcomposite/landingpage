@@ -290,6 +290,105 @@
       text-align: center;
       position: relative;
       background: var(--color-bg);
+      overflow: hidden;
+    }
+    
+    /* Kompozit/honeycomb pattern arka plan */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a365d' fill-opacity='0.04'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.6;
+      z-index: 0;
+    }
+    
+    /* Gradient overlay - üstten ve alttan fade */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        var(--color-bg) 0%,
+        transparent 15%,
+        transparent 85%,
+        var(--color-bg) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .hero > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Floating geometric shapes */
+    .hero-shapes {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+    .hero-shape {
+      position: absolute;
+      border: 1px solid rgba(26, 54, 93, 0.08);
+      border-radius: 4px;
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.03), transparent);
+    }
+    
+    .hero-shape:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: -5%;
+      transform: rotate(15deg);
+      animation: float1 20s ease-in-out infinite;
+    }
+    
+    .hero-shape:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      top: 60%;
+      right: -3%;
+      transform: rotate(-20deg);
+      animation: float2 25s ease-in-out infinite;
+    }
+    
+    .hero-shape:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      bottom: 20%;
+      left: 10%;
+      transform: rotate(45deg);
+      animation: float3 18s ease-in-out infinite;
+    }
+    
+    .hero-shape:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      top: 15%;
+      right: 15%;
+      transform: rotate(-10deg);
+      animation: float1 22s ease-in-out infinite reverse;
+    }
+    
+    @keyframes float1 {
+      0%, 100% { transform: rotate(15deg) translate(0, 0); }
+      50% { transform: rotate(15deg) translate(20px, 30px); }
+    }
+    
+    @keyframes float2 {
+      0%, 100% { transform: rotate(-20deg) translate(0, 0); }
+      50% { transform: rotate(-20deg) translate(-30px, -20px); }
+    }
+    
+    @keyframes float3 {
+      0%, 100% { transform: rotate(45deg) translate(0, 0); }
+      50% { transform: rotate(45deg) translate(15px, -25px); }
     }
     
     .logo {
@@ -627,6 +726,14 @@
 
   <!-- Hero -->
   <header class="hero">
+    <!-- Floating geometric shapes -->
+    <div class="hero-shapes" aria-hidden="true">
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+      <div class="hero-shape"></div>
+    </div>
+    
     <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="280" height="280">
     <h1 class="hero-title">Hafif Malzeme Tasarımında Akıllı Çözüm</h1>
     <p class="tagline">Karbon fiber ve kompozit parça tasarımını kolaylaştıran yazılım. Daha hafif ürünler, daha kısa sürede.</p>
