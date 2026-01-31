@@ -283,11 +283,9 @@
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: var(--space-12) var(--space-6);
-      text-align: center;
+      padding: var(--space-16) var(--space-6);
       position: relative;
       background: var(--color-bg);
       overflow: hidden;
@@ -303,7 +301,7 @@
       z-index: 0;
     }
     
-    /* Gradient overlay - üstten ve alttan fade */
+    /* Gradient overlay */
     .hero::after {
       content: '';
       position: absolute;
@@ -311,8 +309,8 @@
       background: linear-gradient(
         to bottom,
         var(--color-bg) 0%,
-        transparent 15%,
-        transparent 85%,
+        transparent 20%,
+        transparent 80%,
         var(--color-bg) 100%
       );
       z-index: 1;
@@ -322,6 +320,38 @@
     .hero > * {
       position: relative;
       z-index: 2;
+    }
+    
+    /* Hero içerik container */
+    .hero-container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-16);
+      max-width: 1100px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Logo sol tarafta */
+    .hero-brand {
+      flex-shrink: 0;
+      animation: fadeInLeft 800ms var(--ease-out);
+    }
+    
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .logo {
+      width: 140px;
+      height: auto;
+    }
+    
+    /* İçerik sağ tarafta */
+    .hero-content {
+      flex: 1;
     }
     
     /* Floating geometric shapes */
@@ -335,103 +365,115 @@
     
     .hero-shape {
       position: absolute;
-      border: 1px solid rgba(26, 54, 93, 0.08);
+      border: 1px solid rgba(26, 54, 93, 0.06);
       border-radius: 4px;
-      background: linear-gradient(135deg, rgba(26, 54, 93, 0.03), transparent);
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.02), transparent);
     }
     
     .hero-shape:nth-child(1) {
-      width: 300px;
-      height: 300px;
-      top: 10%;
-      left: -5%;
+      width: 250px;
+      height: 250px;
+      top: 5%;
+      right: -5%;
       transform: rotate(15deg);
       animation: float1 20s ease-in-out infinite;
     }
     
     .hero-shape:nth-child(2) {
-      width: 200px;
-      height: 200px;
-      top: 60%;
-      right: -3%;
+      width: 180px;
+      height: 180px;
+      bottom: 10%;
+      right: 10%;
       transform: rotate(-20deg);
       animation: float2 25s ease-in-out infinite;
     }
     
     .hero-shape:nth-child(3) {
-      width: 150px;
-      height: 150px;
-      bottom: 20%;
-      left: 10%;
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      left: 5%;
       transform: rotate(45deg);
       animation: float3 18s ease-in-out infinite;
     }
     
-    .hero-shape:nth-child(4) {
-      width: 100px;
-      height: 100px;
-      top: 15%;
-      right: 15%;
-      transform: rotate(-10deg);
-      animation: float1 22s ease-in-out infinite reverse;
-    }
-    
     @keyframes float1 {
       0%, 100% { transform: rotate(15deg) translate(0, 0); }
-      50% { transform: rotate(15deg) translate(20px, 30px); }
+      50% { transform: rotate(15deg) translate(15px, 20px); }
     }
     
     @keyframes float2 {
       0%, 100% { transform: rotate(-20deg) translate(0, 0); }
-      50% { transform: rotate(-20deg) translate(-30px, -20px); }
+      50% { transform: rotate(-20deg) translate(-20px, -15px); }
     }
     
     @keyframes float3 {
       0%, 100% { transform: rotate(45deg) translate(0, 0); }
-      50% { transform: rotate(45deg) translate(15px, -25px); }
-    }
-    
-    .logo {
-      max-width: 280px;
-      width: 100%;
-      height: auto;
-      margin-bottom: var(--space-10);
-      animation: fadeInUp 800ms var(--ease-out);
+      50% { transform: rotate(45deg) translate(10px, -20px); }
     }
     
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(32px); }
+      from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
     }
     
     .hero-title {
       margin-bottom: var(--space-4);
-      max-width: 600px;
+      max-width: 560px;
       animation: fadeInUp 800ms var(--ease-out) 100ms both;
     }
     
     .tagline {
       font-size: var(--text-lg);
-      max-width: 520px;
-      margin-bottom: var(--space-10);
+      max-width: 480px;
+      margin-bottom: var(--space-8);
       animation: fadeInUp 800ms var(--ease-out) 200ms both;
     }
     
-    .hero .btn {
+    .hero-content .btn {
       animation: fadeInUp 800ms var(--ease-out) 300ms both;
     }
     
     .scroll-hint {
       position: absolute;
-      bottom: var(--space-10);
-      font-size: var(--text-xl);
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--text-lg);
       color: var(--color-text-subtle);
       animation: fadeInUp 800ms var(--ease-out) 500ms both, bounce 2.5s ease 1.5s infinite;
     }
     
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); opacity: 0.4; }
-      50% { transform: translateY(10px); opacity: 0.7; }
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+      50% { transform: translateX(-50%) translateY(8px); opacity: 0.7; }
+    }
+    
+    /* Hero responsive - mobilde alt alta */
+    @media (max-width: 768px) {
+      .hero {
+        padding: var(--space-12) var(--space-5);
+      }
+      
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-8);
+      }
+      
+      .logo {
+        width: 100px;
+      }
+      
+      .hero-title,
+      .tagline {
+        max-width: 100%;
+      }
+      
+      .hero-content .btn {
+        width: 100%;
+        max-width: 280px;
+      }
     }
 
     /* ==================== SECTIONS ==================== */
@@ -731,13 +773,22 @@
       <div class="hero-shape"></div>
       <div class="hero-shape"></div>
       <div class="hero-shape"></div>
-      <div class="hero-shape"></div>
     </div>
     
-    <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="280" height="280">
-    <h1 class="hero-title">Hafif Malzeme Tasarımında Akıllı Çözüm</h1>
-    <p class="tagline">Karbon fiber ve kompozit parça tasarımını kolaylaştıran yazılım. Daha hafif ürünler, daha kısa sürede.</p>
-    <a href="#problem" class="btn btn-primary magnetic">Keşfet</a>
+    <div class="hero-container">
+      <!-- Logo sol tarafta -->
+      <div class="hero-brand">
+        <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="140" height="140">
+      </div>
+      
+      <!-- İçerik sağ tarafta -->
+      <div class="hero-content">
+        <h1 class="hero-title">Hafif Malzeme Tasarımında Akıllı Çözüm</h1>
+        <p class="tagline">Karbon fiber ve kompozit parça tasarımını kolaylaştıran yazılım. Daha hafif ürünler, daha kısa sürede.</p>
+        <a href="#problem" class="btn btn-primary magnetic">Keşfet</a>
+      </div>
+    </div>
+    
     <span class="scroll-hint" aria-hidden="true">↓</span>
   </header>
 
