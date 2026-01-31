@@ -326,27 +326,28 @@
     .hero-container {
       display: flex;
       align-items: flex-start;
-      gap: var(--space-12);
-      max-width: 1100px;
+      gap: var(--space-6);
+      max-width: 800px;
       width: 100%;
       position: relative;
       z-index: 2;
+      margin: 0 auto;
     }
     
     /* Logo sol tarafta */
     .hero-brand {
       flex-shrink: 0;
       animation: fadeInLeft 800ms var(--ease-out);
-      margin-top: 4px; /* Başlık üst çizgisiyle hizala */
+      margin-top: 2px;
     }
     
     @keyframes fadeInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
+      from { opacity: 0; transform: translateX(-20px); }
       to { opacity: 1; transform: translateX(0); }
     }
     
     .logo {
-      width: 180px;
+      width: 160px;
       height: auto;
     }
     
@@ -468,7 +469,7 @@
       }
       
       .logo {
-        width: 120px;
+        width: 100px;
       }
       
       .hero-title,
@@ -784,7 +785,7 @@
     <div class="hero-container">
       <!-- Logo sol tarafta -->
       <div class="hero-brand">
-        <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="180" height="180">
+        <img src="assets/images/logo.png" alt="Zonex logosu" class="logo" width="160" height="160">
       </div>
       
       <!-- İçerik sağ tarafta -->
