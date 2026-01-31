@@ -712,17 +712,6 @@
       box-shadow: var(--shadow-lg);
     }
     
-    .card-icon {
-      font-size: var(--text-3xl);
-      margin-bottom: var(--space-4);
-      display: block;
-      transition: transform var(--duration-base) var(--ease-out);
-    }
-    
-    .card:hover .card-icon {
-      transform: scale(1.1);
-    }
-    
     .card-text {
       font-size: var(--text-sm);
       line-height: 1.65;
@@ -869,6 +858,93 @@
       transition: transform var(--duration-base) var(--ease-out);
     }
 
+    /* ==================== SCROLL PROGRESS BAR ==================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+      z-index: 1000;
+      transition: width 50ms linear;
+    }
+
+    /* ==================== BACK TO TOP BUTTON ==================== */
+    .back-to-top {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      width: 48px;
+      height: 48px;
+      background: var(--color-navy);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all var(--duration-base) var(--ease-out);
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      background: var(--color-navy-light);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), 0 8px 24px rgba(26, 54, 93, 0.25);
+    }
+    
+    .back-to-top:active {
+      transform: translateY(-2px);
+    }
+
+    /* ==================== ANIMATED ICONS ==================== */
+    .card-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(26, 54, 93, 0.04));
+      border-radius: var(--radius-lg);
+      transition: all var(--duration-base) var(--ease-out);
+    }
+    
+    .card:hover .card-icon {
+      transform: scale(1.1) rotate(-5deg);
+      background: linear-gradient(135deg, rgba(26, 54, 93, 0.12), rgba(26, 54, 93, 0.06));
+    }
+    
+    /* Icon pulse animation on scroll reveal */
+    @keyframes iconPulse {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .section.visible .card-icon {
+      animation: iconPulse 500ms var(--ease-out) forwards;
+    }
+    
+    .section.visible .card:nth-child(1) .card-icon { animation-delay: 150ms; }
+    .section.visible .card:nth-child(2) .card-icon { animation-delay: 230ms; }
+    .section.visible .card:nth-child(3) .card-icon { animation-delay: 310ms; }
+    .section.visible .card:nth-child(4) .card-icon { animation-delay: 390ms; }
+
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 640px) {
       .hero {
@@ -912,6 +988,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Skip Link -->
   <a href="#problem" class="skip-link">Skip to content</a>
@@ -1070,6 +1149,9 @@
     <a href="mailto:sukrutarik.kostak@tai.com.tr?subject=ZONEX%20Pilot%20Call" class="btn btn-primary magnetic">Request a Pilot Call</a>
   </section>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
   <!-- Footer -->
   <footer class="footer">
     <p>Limited pilot slots.</p>
@@ -1128,6 +1210,30 @@
         card.addEventListener('mouseleave', () => {
           card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
         });
+      });
+      
+      // Scroll progress bar
+      const progressBar = document.querySelector('.scroll-progress');
+      const updateProgress = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressBar.style.width = progress + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      
+      // Back to top button
+      const backToTop = document.querySelector('.back-to-top');
+      const toggleBackToTop = () => {
+        if (window.scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      };
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     })();
   </script>
