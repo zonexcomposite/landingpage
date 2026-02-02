@@ -687,10 +687,38 @@
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
-      aspect-ratio: 16 / 9;
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      box-shadow: 
+        0 4px 6px rgba(26, 54, 93, 0.08),
+        0 12px 24px rgba(26, 54, 93, 0.12),
+        0 24px 48px rgba(26, 54, 93, 0.16);
+      background: #f5f5f5;
+      border: 1px solid rgba(26, 54, 93, 0.1);
+    }
+    
+    .mockup-titlebar {
+      height: 36px;
+      background: linear-gradient(180deg, #e8e8e8 0%, #d8d8d8 100%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 8px;
+    }
+    
+    .mockup-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .mockup-dot.red { background: #ff5f57; }
+    .mockup-dot.yellow { background: #febc2e; }
+    .mockup-dot.green { background: #28c840; }
+    
+    .mockup-content {
+      aspect-ratio: 16 / 9;
       background: var(--color-navy);
     }
     
@@ -1231,9 +1259,16 @@
       <!-- Mockup placeholder -->
       <div class="mockup-container">
         <div class="mockup" aria-hidden="true">
-          <video autoplay loop muted playsinline aria-label="ZONEX demo">
-            <source src="../assets/video/kısa.mp4" type="video/mp4">
-          </video>
+          <div class="mockup-titlebar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+          </div>
+          <div class="mockup-content">
+            <video autoplay loop muted playsinline aria-label="ZONEX demo">
+              <source src="../assets/video/kısa.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
     </section>
