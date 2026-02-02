@@ -700,6 +700,28 @@
       height: auto;
       display: block;
     }
+    
+    /* Grid Image */
+    .grid-image-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      opacity: 0;
+      transform: translateY(32px);
+      transition: all var(--duration-slow) var(--ease-out);
+    }
+    
+    .grid-image-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .grid-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
 
     /* Hero responsive - mobilde alt alta */
     @media (max-width: 768px) {
@@ -1199,6 +1221,11 @@
       </div>
     </section>
 
+    <!-- Grid Image -->
+    <div class="grid-image-container">
+      <img src="assets/images/grid.webp" alt="Multi-zone kompozit grid yapısı" class="grid-image">
+    </div>
+
     <!-- Solution -->
     <section class="section" id="solution" aria-labelledby="solution-title">
       <div class="section-header">
@@ -1304,7 +1331,7 @@
       'use strict';
       
       // Scroll reveal
-      const sections = document.querySelectorAll('.section, .cta-section');
+      const sections = document.querySelectorAll('.section, .cta-section, .grid-image-container');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
