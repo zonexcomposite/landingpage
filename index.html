@@ -688,19 +688,17 @@
       max-width: 800px;
       margin: 0 auto;
       aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, rgba(26, 54, 93, 0.08), rgba(26, 54, 93, 0.04));
-      border: 2px dashed rgba(26, 54, 93, 0.2);
       border-radius: var(--radius-xl);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-subtle);
-      font-size: var(--text-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--color-navy);
     }
     
-    .mockup::before {
-      content: 'Ekran görüntüsü buraya gelecek';
-      opacity: 0.6;
+    .mockup video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* Hero responsive - mobilde alt alta */
@@ -1232,7 +1230,11 @@
       
       <!-- Mockup placeholder -->
       <div class="mockup-container">
-        <div class="mockup" aria-hidden="true"></div>
+        <div class="mockup" aria-hidden="true">
+          <video autoplay loop muted playsinline aria-label="ZONEX demo">
+            <source src="assets/video/kısa.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </section>
 
